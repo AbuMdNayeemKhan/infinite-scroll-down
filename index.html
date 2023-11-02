@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html{
+            overflow-x: hidden;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+            width: 100vw;
+        }
+        .container img{
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        const url = ["assets/img/collections-bg-1.webp", "assets/img/collections-bg-2.webp", "assets/img/collections-bg-3.webp", "assets/img/collections-bg-4.webp", "assets/img/collections-bg-5.webp", "assets/img/collections-bg-6.jpg","assets/img/collections-bg-7.webp", "assets/img/collections-bg-8.webp", "assets/img/collections-bg-9.webp", "assets/img/collections-bg-10.webp", "assets/img/collections-bg-11.webp", "assets/img/collections-bg-12.webp",];
+        function loadImages(numImages = 1){
+            let i = 0;
+            while(i < numImages){
+                for(x = 0; x < url.length; x++){
+                    const img = document.createElement("img");
+                    img.src = url[x];
+                    container.appendChild(img);
+                }
+                i++;
+            }
+        };
+        loadImages();
+        window.addEventListener('scroll', ()=>{
+            if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight){
+                loadImages();
+            }
+        });
+    </script>
+</body>
+</html>
